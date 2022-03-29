@@ -16,8 +16,13 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header" role="banner">
-      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+      <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+      {% for page in site.html_pages %}
+        {% if page.exclude_from_header != true %}
+          <a href="{{ page.url }}" class="btn">{{ page.title }}</a>
+        {% endif %}
+      {% endfor %}
       {% for page in site.header_pages %}
         <a href="{{ page[1] }}" class="btn">{{ page[0] }}</a>
       {% endfor %}
