@@ -37,3 +37,9 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: page
+      permalink: /blog/:title/
