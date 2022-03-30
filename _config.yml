@@ -18,3 +18,22 @@ remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
+
+# Jekyll collections
+# https://jekyllrb.com/docs/collections/
+# https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/_config.yml#L133-L136
+collections:
+  pages:
+    output: true
+    sort_by: order
+
+# Default scopes
+# https://jekyllrb.com/docs/configuration/front-matter-defaults/
+# https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/_config.yml#L138-L148
+defaults:
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: page
+      permalink: /:title/

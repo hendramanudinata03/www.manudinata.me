@@ -1,6 +1,5 @@
 ---
 layout: default
-exclude_from_header: true
 ---
 
 <div align="center">
