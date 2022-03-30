@@ -43,3 +43,4 @@ defaults:
     values:
       layout: page
       permalink: /blog/:title/
+      comments: true
