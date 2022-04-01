@@ -45,3 +45,8 @@ defaults:
       layout: page
       permalink: /blog/:title/
       comments: true
+
+# Jekyll Admin configuration
+jekyll_admin:
+  hidden_links:
+    - datafiles
