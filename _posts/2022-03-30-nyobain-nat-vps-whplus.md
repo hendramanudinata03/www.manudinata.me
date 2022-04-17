@@ -4,15 +4,15 @@ title: "Nyobain NAT VPS Whplus, VPS Murah Menggunakan Shared IPv4"
 
 Beberapa minggu lalu saya sempat mencari layanan penyedia _Virtual Private Server_ (VPS) untuk kebutuhan pribadi, seperti _private VPN & proxy_, _deploy_ program, dan lain sebagainya.
 
-Setelah _Googling_ kesana-kemari, akhirnya saya menemukan layanan **NAT VPS** oleh [Whplus](https://www.whplus.com). _NAT VPS?_ Saya baru pertama kali mendengar itu. Namun, harga yang ditawarkan sangat murah. Untuk spesifikasi minimum (1 vCore 128MB RAM) dipatok dengan harga Rp. 7,500 per bulan. Wow!
+Setelah _Googling_ kesana-kemari, akhirnya saya menemukan layanan **NAT VPS** oleh [Whplus](https://www.whplus.com). _NAT VPS?_ Saya baru pertama kali mendengarnya. Namun, harga yang ditawarkan sangat murah. Untuk spesifikasi minimum (1 vCore 128MB RAM) dipatok dengan harga Rp. 7,500 per bulan. Wow!
 
 Sebelum menelusuri lebih lanjut, saya terlebih dahulu mencari definisi dari NAT VPS. Tidak terlalu banyak artikel yang saya dapatkan, namun informasi yang didapat sudah cukup untuk dijadikan sebagai garis besar.
 
 # Apa itu NAT VPS?
 
-NAT VPS adalah layanan VPS yang menggunakan _shared IPv4_ sebagai akses ke VPS. _Maksudnya?_ Satu IPv4 publik digunakan oleh beberapa VPS dalam satu jaringan.
+NAT VPS adalah layanan VPS yang menggunakan _shared IPv4_ sebagai akses ke VPS melalui metode NAT _Network Address Translation_. _Maksudnya?_ Satu IPv4 publik digunakan oleh beberapa VPS dalam satu jaringan.
 
-Misalnya saya membeli VPS A dan teman saya membeli VPS B dalam satu wilayah _Datacenter_. Saya dan teman saya akan diberi **IP yang sama** untuk mengakses VPS. Begitu juga dengan orang lain dalam satu wilayah _Datacenter_.
+Misalnya saya membeli VPS A dan teman saya membeli VPS B dalam satu wilayah _Datacenter_ yang sama. Saya dan teman saya akan diberi **IP publik yang sama** untuk mengakses VPS. Begitu juga dengan orang lain dalam satu wilayah _Datacenter_.
 
 Menggunakan cara ini sangat ampuh dalam menekan biaya, karena harga satu IPv4 sendiri tergolong _lumayan_.
 
@@ -22,7 +22,7 @@ _Wah, kalau saya dan teman saya menggunakan IP yang sama, berarti saya bisa meng
 
 Setiap VPS diberikan 20 port terbuka + 1 port untuk akses SSH (Secure SHell) yang berbeda-beda pada tiap VPS, tergantung dari layanan yang digunakan. Namun biasanya, **port diambil dari angka terakhir IP _private_ VPS**.
 
-Contohnya begini. VPS saya memiliki IP _private_ `192.168.1.100`, dan VPS teman saya memiliki IP _private_ `192.168.1.200`. Berarti, VPS saya memiliki 20 + 1 port yang terbuka, yaitu `10000` sampai `10019`, ditambah `10020` untuk akses SSH. Mirip dengan VPS teman saya, yaitu `20000` sampai `20019`, ditambah `20020` untuk akses SSH.
+Contohnya begini. VPS saya memiliki IP _private_ `192.168.1.100`, dan VPS teman saya memiliki IP _private_ `192.168.1.200`. Berarti, VPS saya memiliki 20 + 1 port yang terbuka, yaitu `10000`, `10001`, `10002` sampai `10019`, ditambah `10020` untuk akses SSH. Mirip dengan VPS teman saya, yaitu `20000`, `20001`, `20002`, sampai `20019`, ditambah `20020` untuk akses SSH.
 
 Dengan pembatasan port ini, menggunakan NAT VPS menjadi semakin menantang. Layanan-layanan yang kita deploy harus mengarah ke port-port yang terbuka. Jika tidak, layanan tersebut tidak akan dapat diakses oleh dunia luar.
 
@@ -144,7 +144,7 @@ Listen <PortTerbuka>
 Contohnya:
 
 ```
-Listen 12020
+Listen 12001
 ```
 
 Simpan dan tutup file tersebut, lalu jalankan perintah berikut:
