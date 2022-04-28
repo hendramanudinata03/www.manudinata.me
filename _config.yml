@@ -13,6 +13,9 @@ github_username: hendramanudinata03
 header_pages:
   GitHub: "https://github.com/hendramanudinata03"
 
+webmaster_verifications:
+  google: "7-yn89Y52cUBQzstZ2QBlGQAZui88bIeaF8RLpBMcZQ"
+
 # Build settings
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
